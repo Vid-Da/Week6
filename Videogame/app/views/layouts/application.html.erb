@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VideoGames</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <main class="container ctrl-<%= controller_name %> actn-<%= action_name %>">
+    <%= yield %>
+  </main>
+
+  <%= javascript_include_tag 'application' %>
+</body>
+</html>
+
+<!-- All this for the modal for new player -->
+
+<div id="js-player-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form id="js-player-form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add new player</h4>
+        </div>
+        <div class="modal-body">
+            <fieldset class="form-group">
+              <label for="js-player-name">Name</label> 
+              <select name="player_id" id="js-players" class="form-control">
+                <!-- <option value="">Value1 </option>
+                 <option value="">Value2 </option> -->
+              </select>
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add player</button>
+      </div>
+     </form>
+    </div>
+  </div>
+</div>
