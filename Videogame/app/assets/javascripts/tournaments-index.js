@@ -69,6 +69,7 @@ function addPlayerToTournament (event) {
     data: {player_id: playerId},
     success: function() {
       $('#js-player-modal').modal('hide');
-    }
+    },
+    error:{}
   });
 }

@@ -1,0 +1,6 @@
+<% if current_user %>
+	<h1>Hi <% current_user.username %>!</h1>
+	<%= link_to "Logout", "/logout", method: :delete%><br>
+<% else %>
+	<%= link_to "Login", "/login" %><br>
+<% end %>

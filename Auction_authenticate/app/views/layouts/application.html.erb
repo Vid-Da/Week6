@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AuctionSite</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>AUCTION TIME BABIEES!</h1>
+
+	<% if current_user %>
+		<h1>Hi <%= current_user.name %>!</h1>
+		<%= link_to "Logout", "/logout", method: :delete%><br>
+	<% else %>
+		<%= link_to "Login", "/login" %><br>
+	<% end %>
+
+<%= yield %>
+
+</body>
+</html>
