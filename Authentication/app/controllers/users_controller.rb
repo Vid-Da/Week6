@@ -1,4 +1,7 @@
+
+
 class UsersController < ApplicationController
+
   before_action :authorize_user, only: [:index]
 
   # renders the home page
