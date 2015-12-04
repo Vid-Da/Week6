@@ -1,1 +1,18 @@
 <p>Welcome back!</p>
+
+
+<% if(@products.any?) %>
+  <h3>Products</h3>
+  <ul>
+    <% @products.each do |p| %>
+      <li><%= p.title %></li>
+      <li><% p.reviews do |r| %></li>
+      	<ul>
+      		<li><%= r.description %></li>
+      	</ul>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+	<p>No products available</p>
+<% end %>

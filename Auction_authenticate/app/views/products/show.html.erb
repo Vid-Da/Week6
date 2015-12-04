@@ -2,6 +2,7 @@
 <strong>Seller: <%= @user.name %></strong>
 <em>Deadline date: <%= format_date(@product.deadline) %></em>
 
+
 <% if(@product.active_bid?) %>
   <h3>I want the product!</h3>
 
@@ -28,7 +29,28 @@
       <% end %>
     </ul>
   <% end %>
+
 <% else %>
   <h3>The auction has finished</h3>
   <p>The winner was: <%= @winner_user.name %> paying <%= format_price(@winner_bid.amount) %> €</p>
+<% end %>
+
+
+<% if current_user %>
+  <form action="/users/<%= @user.id %>/products/<%= @product.id %>/reviews" method="post">
+    <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+    <p>Add your review for this product</p>
+    <input type="text" name="[review]description" id='review' required>
+    <button type="submit">Add review</button>
+  </form>
+<% end %>
+
+
+<% if(@reviews.any?) %>
+  <h3>Reviews</h3>
+  <ul>
+    <% @reviews.each do |rvw| %>
+      <li><%= rvw.description %></li>
+    <% end %>
+  </ul>
 <% end %>

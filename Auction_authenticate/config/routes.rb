@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   get '/profile' => 'users#show'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
 
   resources :users, only: [:new, :index, :create, :destroy] do
     resources :products, only: [:index, :show, :new, :create, :destroy] do
       resources :bids, only: [:create]
+      resources :reviews, only: [:new, :create]
     end
   end
 end

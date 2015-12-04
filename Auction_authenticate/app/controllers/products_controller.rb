@@ -1,3 +1,5 @@
+require 'pry'
+
 class ProductsController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
@@ -7,6 +9,7 @@ class ProductsController < ApplicationController
   def show
     @user = User.find_by(id: params[:user_id])
     @product = @user.products.find_by(id: params[:id])
+    @reviews = @product.reviews
 
     if(@product.active_bid?)
       @bids = @product.bids

@@ -1,0 +1,19 @@
+<h2>List of all players</h2>
+
+<ul>
+	<% @players.each do |p| %>
+		<li>
+			<%= p.name %>
+		</li>
+	<% end %>
+</ul>
+
+
+<ul>
+	<% @matches.each do |m| %>
+		<li>
+			Winner: <%= m.winner_faction %> | id: <%= m.winner_id %><br>
+			Loser: <%= m.loser_faction %> | id: <%= m.loser_id %>
+		</li>
+	<% end %>
+</ul>

@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   has_many :bids
+  has_many :reviews
 
   def active_bid?
     self.deadline > Date.current.end_of_day

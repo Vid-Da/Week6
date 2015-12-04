@@ -1,0 +1,10 @@
+<h2>Your history player <%= @match.winner_id %></h2>
+
+<ul>
+	<% @match.each do |m| %>
+		<li>
+			Winner: <%= m.winner_faction %> | id: <%= m.winner_id %><br>
+			Loser: <%= m.loser_faction %> | id: <%= m.loser_id %>
+		</li>
+	<% end %>
+</ul>

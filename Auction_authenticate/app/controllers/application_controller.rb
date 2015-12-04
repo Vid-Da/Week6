@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def authorize_user
+  	unless current_user
+  		flash[:message] = "Signup please!"
+  		redirect_to :login
+  	end
+  end
+
   def render_404(params)
     Rails.logger.warn("Tried to access #{params} which did not exist.")
     render 'layouts/404'

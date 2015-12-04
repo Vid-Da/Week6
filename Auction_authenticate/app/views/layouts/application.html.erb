@@ -9,6 +9,10 @@
 <body>
 <h1>AUCTION TIME BABIEES!</h1>
 
+	<% flash.each do |key, msg| %>
+		<%= content_tag :div, msg, id: key, style: "color:red;" %>
+	<% end %>
+
 	<% if current_user %>
 		<h1>Hi <%= current_user.name %>!</h1>
 		<%= link_to "Logout", "/logout", method: :delete%><br>
